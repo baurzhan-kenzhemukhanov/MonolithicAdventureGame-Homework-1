@@ -1,5 +1,5 @@
 # Adventure Game Refactoring Implementation
-Made by Baurzhan Kenzhemukhanov
+Made by Baurzhan Kenzhemukhanov / ShP 2223
 
 
 ## Overview
