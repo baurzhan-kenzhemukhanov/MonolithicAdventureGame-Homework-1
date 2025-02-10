@@ -88,9 +88,9 @@ High-level modules depend on abstractions:
 ### Item System
 - Items implement `IItem` interface
 - Three types of items:
-  - Health Elixir: Restores player health
-  - Gold Coin: Grants small experience boost
-  - Magic Scroll: Grants larger experience boost
+  - Middle East Bones: Regeneration of player health
+  - Titanuim Steel: Gives a small experience level
+  - Oakshield: Gives a bigger experience level
 
 ### Combat System
 - Handles attack and counter-attack mechanics
@@ -116,7 +116,7 @@ The updated design makes it easy to add:
 4. Well-structured separation of game mechanics
 
 ## Class Structure Meaning
-The refactored classes follow SOLID principles, improving maintainability, testability, and extensibility. By separating concerns, each class has a single responsibility, reducing complexity. Interfaces decouple dependencies, enabling modular design and easy feature additions like new enemies, items, or mechanics without affecting existing code.
+The refactored classes follow SOLID principles, improving maintainability, testability, and extensibility. By separating concerns, each class has a single responsibility, reducing complexity. Interfaces decouple dependencies, enabling modular design and easy feature additions like new rivals, items, or mechanics without affecting existing code.
 
 ## Running the Game
 ```java
