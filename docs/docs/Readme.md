@@ -1,5 +1,5 @@
 # Adventure Game Refactoring Implementation
-© 2025 Baurzhan Kenzhemukhanov
+Made by Baurzhan Kenzhemukhanov
 
 
 ## Overview
