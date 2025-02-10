@@ -2,8 +2,8 @@
 Made by Baurzhan Kenzhemukhanov / ShP 2223
 
 
-## Overview
-This project demonstrates the refactoring of a monolithic adventure game into a well-structured, **SOLID-compliant** design. The original implementation had all game logic contained in a single class, violating several SOLID principles. The refactored version separates concerns into distinct components, making the code more **maintainable**, **extensible**, and **testable**.
+## Review
+This project showcases the transformation of a monolithic adventure game into a well-structured design that adheres to SOLID principles. Initially, all game logic was confined to a single class, leading to multiple SOLID violations. The refactored version organizes functionalities into separate components, enhancing maintainability, scalability, and testability.
 
 ## Project Structure
 ```
