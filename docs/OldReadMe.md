@@ -90,9 +90,9 @@ Break the existing **MonolithicAdventureGame** class into distinct components:
 │   │   ├── Elves.java
 │   ├── 📂 items
 │   │   ├── ItemManager.java
-│   │   ├── GoldCoin.java
-│   │   ├── HealthElixir.java
-│   │   ├── MagicScroll.java
+│   │   ├── MiddleEastBones.java
+│   │   ├── TitanuimSteel.java
+│   │   ├── Oakshield.java
 │   ├── 📂 level
 │   │   ├── LevelManager.java
 │   ├── 📂 score
