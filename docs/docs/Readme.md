@@ -16,11 +16,11 @@ src/
 │   └── IItemType.java      # Item type definitions
 ├── 📂 player/
 │   └── Player.java         # Player implementation
-├── 📂 enemies/
-│   ├── Enemy.java          # Base abstract class for enemies
-│   ├── Skeleton.java       # Skeleton enemy implementation
-│   ├── Zombie.java         # Zombie enemy implementation
-│   └── Vampire.java        # Vampire enemy implementation
+├── 📂 rival/
+│   ├── Rival.java          # Base abstract class for rivals
+│   ├── Orcs.java           # Orcs rival implementation
+│   ├── Dwarfs.java         # Dwarfs rival implementation
+│   └── Elves.java          # Elves rival implementation
 ├── 📂 items/
 │   ├── HealthElixir.java   # Health restoration item
 │   ├── GoldCoin.java       # Experience-giving item
@@ -36,7 +36,7 @@ src/
 ### 1️⃣ Single Responsibility Principle (SRP)
 Each class has been designed with a single, well-defined responsibility:
 - `Player`: Manages player state and attributes
-- `Enemy`: Defines base enemy behavior
+- `Opponents`: Defines base rivals behavior
 - `CombatManager`: Handles combat logic exclusively
 - `LevelManager`: Manages level progression and entity spawning
 - `Item` classes: Each handles its specific item behavior
@@ -44,7 +44,7 @@ Each class has been designed with a single, well-defined responsibility:
 
 ### 2️⃣ Open/Closed Principle (OCP)
 The design is open for extension but closed for modification:
-- New enemy types can be added by extending `Enemy` without modifying existing code
+- New rivals types can be added by extending `Rivals` without modifying existing code
 - New items can be implemented through the `IItem` interface
 - New combat mechanics can be added by extending `CombatManager`
 - New level types can be added in `LevelManager` without changing other components
@@ -52,7 +52,7 @@ The design is open for extension but closed for modification:
 
 ### 3️⃣ Liskov Substitution Principle (LSP)
 All derived classes can be used in place of their base classes:
-- All enemies (Skeleton, Zombie, Vampire) are interchangeable through the `Enemy` base class
+- All rivals (Orcs, Dwarfs, Elves) are interchangeable through the `Rivals` base class
 - All items are usable through the `IItem` interface
 - All combat participants implement `ICombatant` consistently
 
@@ -78,12 +78,12 @@ High-level modules depend on abstractions:
 - Manages health, experience, and inventory
 - Damage calculation based on experience level
 
-### Enemy System
-- Base `Enemy` class with common functionality
-- Specific enemy types with unique attributes:
-  - Skeleton: Low health, low damage
-  - Zombie: Medium health, medium damage
-  - Vampire: High health, high damage
+### Rivals System
+- Base `Rivals` class with common functionality
+- Specific rivals types with unique attributes:
+  - Orcs: Low health, low damage
+  - Dwarfs: Medium health, medium damage
+  - Elves: High health, high damage
 
 ### Item System
 - Items implement `IItem` interface
@@ -99,12 +99,12 @@ High-level modules depend on abstractions:
 
 ### Level Management
 - Controls level progression
-- Manages enemy and item spawning
+- Manages rivals and item spawning
 - Tracks level completion conditions
 
 ## Expansibility
 The updated design makes it easy to add:
-1. New Enemy Types: Create new class extending `Enemy`
+1. New Rivals Types: Create new class extending `Rivals`
 2. New Items: Implement `IItem` interface
 3. New Combat Mechanics: Extend `CombatManager`
 4. New Level Types: Add to `LevelManager`
