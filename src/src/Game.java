@@ -1,7 +1,7 @@
 import player.Player;
 import managers.*;
 import interfaces.*;
-import enemies.Enemy;
+import rivals.Rival;
 
 public class Game {
     private Player player;
@@ -37,19 +37,19 @@ public class Game {
     }
 
     private void playLevel() {
-        // Process all enemies and items in the level
+        // Process all rivals and items in the level
         while (!levelManager.isLevelComplete() && player.isAlive()) {
-            // Handle enemies
-            for (Enemy enemy : levelManager.getEnemies()) {
-                if (enemy.isAlive()) {
-                    combatManager.processCombat(player, enemy);
+            // Handle rivals
+            for (Rival rival : levelManager.getRivals()) {
+                if (rival.isAlive()) {
+                    combatManager.processCombat(player, rival);
                     if (!player.isAlive()) {
                         return;
                     }
-                    if (!enemy.isAlive()) {
-                        levelManager.removeEnemy(enemy);
-                        player.setExperience(player.getExperience() + enemy.getExperience());
-                        System.out.println(player.getName() + " gained " + enemy.getExperience() + " experience!");
+                    if (!rival.isAlive()) {
+                        levelManager.removeRival(rival);
+                        player.setExperience(player.getExperience() + rival.getExperience());
+                        System.out.println(player.getName() + " gained " + rival.getExperience() + " experience!");
                         break;
                     }
                 }
