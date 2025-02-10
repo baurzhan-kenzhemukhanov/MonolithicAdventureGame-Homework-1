@@ -8,7 +8,7 @@ public interface IItem extends IEntity {
 }
 
 enum ItemType {
-    HEALTH_POTION,
-    EXPERIENCE_SCROLL,
-    GOLD
+    BONES_ITEM,
+    OAKSHIELD,
+    STEEL
 }
