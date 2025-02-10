@@ -36,7 +36,7 @@ src/
 ### 1️⃣ Single Responsibility Principle (SRP)
 Each class has been designed with a single, well-defined responsibility:
 - `Player`: Manages player state and attributes
-- `Opponents`: Defines base rivals behavior
+- `Rivals`: Defines base rivals behavior
 - `CombatManager`: Handles combat logic exclusively
 - `LevelManager`: Manages level progression and entity spawning
 - `Item` classes: Each handles its specific item behavior
