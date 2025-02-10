@@ -5,69 +5,70 @@ import rivals.Rival;
 
 public class Game {
     private Player player;
-    private LevelManager levelManager;
-    private CombatManager combatManager;
+    private LevelManager levelHandler;
+    private CombatManager battleHandler;
 
     public Game() {
         this.player = new Player("Adventurer");
-        this.levelManager = new LevelManager();
-        this.combatManager = new CombatManager();
+        this.levelHandler = new LevelManager();
+        this.battleHandler = new CombatManager();
     }
 
-    public void playGame() {
-        System.out.println("=== Adventure Game Begins ===");
-        
-        while (levelManager.getCurrentLevel() <= 3 && player.isAlive()) {
-            System.out.println("\n=== Level " + levelManager.getCurrentLevel() + " ===");
-            playLevel();
-            
-            if (player.isAlive() && levelManager.getCurrentLevel() < 3) {
-                levelManager.advanceLevel();
-                player.setHealth(100); // Restore health between levels
+    public void startGame() {
+        System.out.println("=== The Adventure Begins ===");
+
+        while (levelHandler.getCurrentLevel() <= 3 && player.isAlive()) {
+            System.out.println("\n=== Entering Level " + levelHandler.getCurrentLevel() + " ===");
+            processLevel();
+
+            if (player.isAlive() && levelHandler.getCurrentLevel() < 3) {
+                levelHandler.advanceLevel();
+                player.setHealth(100); 
             }
         }
 
-        // Game over
-        if (!player.isAlive()) {
-            System.out.println("\nGame Over! " + player.getName() + " has fallen!");
-        } else {
-            System.out.println("\nCongratulations! " + player.getName() + " has completed the adventure!");
-            System.out.println("Final Experience: " + player.getExperience());
-        }
+        displayGameResult();
     }
 
-    private void playLevel() {
-        // Process all rivals and items in the level
-        while (!levelManager.isLevelComplete() && player.isAlive()) {
-            // Handle rivals
-            for (Rival rival : levelManager.getRivals()) {
+    private void processLevel() {
+        while (!levelHandler.isLevelComplete() && player.isAlive()) {
+            for (Rival rival : levelHandler.getRivals()) {
                 if (rival.isAlive()) {
-                    combatManager.processCombat(player, rival);
+                    battleHandler.processCombat(player, rival);
+
                     if (!player.isAlive()) {
                         return;
                     }
                     if (!rival.isAlive()) {
-                        levelManager.removeRival(rival);
+                        levelHandler.removeRival(rival);
                         player.setExperience(player.getExperience() + rival.getExperience());
-                        System.out.println(player.getName() + " gained " + rival.getExperience() + " experience!");
+                        System.out.println(player.getName() + " earned " + rival.getExperience() + " XP!");
                         break;
                     }
                 }
             }
-
-            // Handle items
-            if (!levelManager.getItems().isEmpty()) {
-                IItem item = levelManager.getItems().get(0);
-                System.out.println(player.getName() + " found " + item.getName() + "!");
-                item.use(player);
-                player.addItem(item);
-                levelManager.removeItem(item);
+            
+            if (!levelHandler.getItems().isEmpty()) {
+                IItem foundItem = levelHandler.getItems().get(0);
+                System.out.println(player.getName() + " discovered " + foundItem.getName() + "!");
+                foundItem.use(player);
+                player.addItem(foundItem);
+                levelHandler.removeItem(foundItem);
             }
         }
     }
 
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.playGame();
+    private void displayGameResult() {
+        if (!player.isAlive()) {
+            System.out.println("\nGame Over! " + player.getName() + " has perished.");
+        } else {
+            System.out.println("\nVictory! " + player.getName() + " has triumphed over the adventure!");
+            System.out.println("Total Experience Gained: " + player.getExperience());
+        }
     }
-} 
+
+    public static void main(String[] args) {
+        Game adventure = new Game();
+        adventure.startGame();
+    }
+}
