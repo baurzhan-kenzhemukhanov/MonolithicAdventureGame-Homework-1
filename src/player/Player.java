@@ -54,7 +54,7 @@ public class Player implements ICombatant {
 
     @Override
     public int dealDamage() {
-        return 20 + (experience / 10); // Base damage + bonus from experience
+        return 20 + (experience / 10); 
     }
 
     public void addItem(IItem item) {
