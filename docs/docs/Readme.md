@@ -102,23 +102,21 @@ High-level modules depend on abstractions:
 - Manages enemy and item spawning
 - Tracks level completion conditions
 
-## Extensibility
-The refactored design allows for easy additions:
+## Expansibility
+The updated design makes it easy to add:
 1. New Enemy Types: Create new class extending `Enemy`
 2. New Items: Implement `IItem` interface
 3. New Combat Mechanics: Extend `CombatManager`
 4. New Level Types: Add to `LevelManager`
 
-## Benefits of Refactoring
-1. Improved maintainability through separated concerns
-2. Enhanced testability with clear component boundaries
-3. Easier addition of new features
-4. Better code organization and readability
-5. Reduced coupling between components
-6. Clear separation of game mechanics
+## Refactoring Choise
+1. Greater maintainability via distinct responsibilities
+2. Improved testability with well-defined boundaries
+3. Cleaner and more readable code
+4. Well-structured separation of game mechanics
 
-## Justification for Class Structure
-The new classes were structured to adhere to the SOLID principles, which enhance maintainability, testability, and extensibility. By separating concerns, each class focuses on a single responsibility, reducing complexity and improving readability. Interfaces decouple dependencies, allowing high-level modules to depend on abstractions, which facilitates easier addition of new features and reduces coupling. This clear separation of game mechanics ensures that changes in one part of the system do not affect others, promoting a modular and organized codebase. The refactored design allows for easy additions, such as new enemy types, items, combat mechanics, and level types, by extending existing classes or implementing new interfaces. This approach not only simplifies the integration of new features but also maintains the integrity of the existing system, ensuring that enhancements do not disrupt the current functionality.
+## Class Structure Meaning
+The refactored classes follow SOLID principles, improving maintainability, testability, and extensibility. By separating concerns, each class has a single responsibility, reducing complexity. Interfaces decouple dependencies, enabling modular design and easy feature additions like new enemies, items, or mechanics without affecting existing code.
 
 ## Running the Game
 ```java
@@ -130,9 +128,10 @@ public class Game {
 }
 ```
 
-The game provides a console-based interface showing:
-- Combat encounters
-- Item pickups
-- Level progression
-- Player status updates
-- Final game outcome 
+The game features a console-based interface that displays:
+
+1. Combat encounters
+2. Item pickups
+3. Level progression
+4. Player status updates
+5. The final game outcome
