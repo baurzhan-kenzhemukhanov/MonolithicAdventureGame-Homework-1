@@ -22,9 +22,9 @@ src/
 │   ├── Dwarfs.java         # Dwarfs rival implementation
 │   └── Elves.java          # Elves rival implementation
 ├── 📂 items/
-│   ├── HealthElixir.java   # Health restoration item
-│   ├── GoldCoin.java       # Experience-giving item
-│   └── MagicScroll.java    # Experience-boosting item
+│   ├── MiddleEastBones.java   # Health regeneration item
+│   ├── TitanuimSteel.java     # Experience-giving item
+│   └── Oakshield.java         # Experience-boosting item
 ├── 📂 managers/
 │   ├── CombatManager.java  # Handles combat interactions
 │   └── LevelManager.java   # Manages level progression and spawning
