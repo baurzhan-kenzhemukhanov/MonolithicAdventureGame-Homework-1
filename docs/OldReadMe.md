@@ -1,16 +1,16 @@
-# **Homework Assignment: Refactoring MonolithicAdventureGame Using SOLID Principles**
+# **Homework-1 Assignment: Refactoring MonolithicAdventureGame Using SOLID Principles**
 
-## **Objective**
-The goal of this assignment is to refactor a **monolithic game simulation** into a well-structured, **SOLID-compliant** design by separating concerns, introducing abstractions, and ensuring maintainability.
+## **Purpose**
+This assignment aims to transform a monolithic game simulation into a well-structured, SOLID-compliant design by dividing responsibilities, incorporating abstractions, and enhancing maintainability.
 
 ---
 
 ## **Monolithic Code Base**
 You have been provided with a **monolithic** implementation of an adventure game where:
 - **Player Management**: Health, experience, and inventory are handled within the same class.
-- **Combat System**: Enemy encounters and damage calculations are tightly coupled.
+- **Combat System**: Rival encounters and damage calculations are tightly coupled.
 - **Item Management**: Items are picked up and stored in the same monolithic class.
-- **Level Progression**: Game levels, enemy spawns, and resets are handled within a single method.
+- **Level Progression**: Game levels, rival spawns, and resets are handled within a single method.
 
 ---
 
@@ -23,7 +23,7 @@ Break the existing **MonolithicAdventureGame** class into distinct components:
 |-------------------------|----------------|
 | **Player Management**  | `Player` |
 | **Combat System**       | `CombatManager` |
-| **Enemy Handling**      | `EnemyManager` |
+| **Rival Handling**      | `RivalManager` |
 | **Item Handling**       | `ItemManager` |
 | **Level Progression**   | `LevelManager` |
 | **Score Management**    | `ScoreManager` |
@@ -38,16 +38,16 @@ Break the existing **MonolithicAdventureGame** class into distinct components:
 
 #### **✅ Open/Closed Principle (OCP)**
 - The system should be **open for extension** but **closed for modification**.
-- **Example:** New enemy types should be **added** without modifying the existing logic.
+- **Example:** New rival types should be **added** without modifying the existing logic.
 
 #### **✅ Dependency Inversion Principle (DIP)**
 - High-level modules should not depend on **low-level modules**.
 - Use **interfaces** where applicable to **decouple dependencies**.
-- **Example:** The `CombatManager` should rely on an `IEnemy` interface rather than concrete `Enemy` classes.
+- **Example:** The `CombatManager` should rely on an `IRival` interface rather than concrete `Rival` classes.
 
 #### **✅ Liskov Substitution Principle (LSP)**
 - Any subclass should **replace** its superclass **without breaking functionality**.
-- **Example:** A `Zombie` or `Vampire` class should be interchangeable without modifying the combat system.
+- **Example:** A `Dwarfs` or `Elves` class should be interchangeable without modifying the combat system.
 
 #### **✅ Interface Segregation Principle (ISP)**
 - Avoid **large, bloated interfaces**—split them into **focused**, smaller interfaces.
@@ -82,11 +82,11 @@ Break the existing **MonolithicAdventureGame** class into distinct components:
 │   │   ├── Player.java
 │   ├── 📂 combat
 │   │   ├── CombatManager.java
-│   ├── 📂 enemies
-│   │   ├── Enemy.java
-│   │   ├── Skeleton.java
-│   │   ├── Zombie.java
-│   │   ├── Vampire.java
+│   ├── 📂 rivals
+│   │   ├── Rival.java
+│   │   ├── Orcs.java
+│   │   ├── Dwarfs.java
+│   │   ├── Elves.java
 │   ├── 📂 items
 │   │   ├── ItemManager.java
 │   │   ├── GoldCoin.java
