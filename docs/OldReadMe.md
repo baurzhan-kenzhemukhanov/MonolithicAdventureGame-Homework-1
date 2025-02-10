@@ -6,15 +6,16 @@ This assignment aims to transform a monolithic game simulation into a well-struc
 ---
 
 ## **Monolithic Code Base**
-You have been provided with a **monolithic** implementation of an adventure game where:
-- **Player Management**: Health, experience, and inventory are handled within the same class.
-- **Combat System**: Rival encounters and damage calculations are tightly coupled.
-- **Item Management**: Items are picked up and stored in the same monolithic class.
-- **Level Progression**: Game levels, rival spawns, and resets are handled within a single method.
+You have received a monolithic adventure game implementation where:
+
+1. Player Management: Health, experience, and inventory are all managed within a single class.
+2. Combat System: Rival encounters and damage calculations are tightly integrated.
+3. Item Management: Item pickup and storage occur within the same monolithic structure.
+4. Level Progression: Game levels, rival spawns, and resets are controlled by a single method.
 
 ---
 
-## **How to Approach the Refactoring**
+## **How to Access the Refactoring**
 
 ### **1. Identify Responsibilities**
 Break the existing **MonolithicAdventureGame** class into distinct components:
