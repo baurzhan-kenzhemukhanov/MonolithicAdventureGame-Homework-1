@@ -3,39 +3,39 @@ package managers;
 import java.util.ArrayList;
 import java.util.List;
 import interfaces.*;
-import enemies.*;
+import rivals.*;
 import items.*;
 
 public class LevelManager {
     private int currentLevel;
-    private List<Enemy> enemies;
+    private List<Rival> rivals;
     private List<IItem> items;
 
     public LevelManager() {
         this.currentLevel = 1;
-        this.enemies = new ArrayList<>();
+        this.rivals = new ArrayList<>();
         this.items = new ArrayList<>();
         initializeLevel();
     }
 
     public void initializeLevel() {
-        enemies.clear();
+        rivals.clear();
         items.clear();
 
         switch (currentLevel) {
             case 1:
-                enemies.add(new Skeleton());
-                enemies.add(new Zombie());
+                rivals.add(new Orcs());
+                rivals.add(new Dwarfs());
                 items.add(new GoldCoin());
                 items.add(new HealthElixir());
                 break;
             case 2:
-                enemies.add(new Vampire());
+                enemies.add(new Elves());
                 items.add(new MagicScroll());
                 break;
             case 3:
-                enemies.add(new Vampire());
-                enemies.add(new Zombie());
+                enemies.add(new Elves());
+                enemies.add(new Dwarfs());
                 items.add(new HealthElixir());
                 items.add(new GoldCoin());
                 break;
@@ -56,16 +56,16 @@ public class LevelManager {
         return currentLevel;
     }
 
-    public List<Enemy> getEnemies() {
-        return new ArrayList<>(enemies);
+    public List<Rival> getRivals() {
+        return new ArrayList<>(rivals);
     }
 
     public List<IItem> getItems() {
         return new ArrayList<>(items);
     }
 
-    public void removeEnemy(Enemy enemy) {
-        enemies.remove(enemy);
+    public void removeRival(Rival rival) {
+        rival.remove(rival);
     }
 
     public void removeItem(IItem item) {
