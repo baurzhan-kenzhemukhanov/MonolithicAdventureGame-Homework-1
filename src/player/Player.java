@@ -1,20 +1,20 @@
 package player;
 
 import interfaces.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Player implements ICombatant {
-    private String name;
+    private final String name;
     private int health;
     private int experience;
-    private List<IItem> inventory;
+    private final List<IItem> inventory;
 
     public Player(String name) {
         this.name = name;
         this.health = 100;
         this.experience = 0;
-        this.inventory = new ArrayList<>();
+        this.inventory = new LinkedList<>();
     }
 
     @Override
@@ -33,8 +33,8 @@ public class Player implements ICombatant {
     }
 
     @Override
-    public void setHealth(int health) {
-        this.health = Math.max(0, Math.min(100, health));
+    public void setHealth(int newHealth) {
+        health = Math.max(0, Math.min(100, newHealth));
     }
 
     @Override
@@ -43,8 +43,8 @@ public class Player implements ICombatant {
     }
 
     @Override
-    public void setExperience(int experience) {
-        this.experience = experience;
+    public void setExperience(int xp) {
+        experience = xp;
     }
 
     @Override
@@ -54,18 +54,20 @@ public class Player implements ICombatant {
 
     @Override
     public int dealDamage() {
-        return 20 + (experience / 10); 
+        return 20 + experience / 10;
     }
 
-    public void addItem(IItem item) {
-        inventory.add(item);
+    public void addItemToInventory(IItem item) {
+        if (item != null) {
+            inventory.add(item);
+        }
     }
 
-    public List<IItem> getInventory() {
-        return new ArrayList<>(inventory);
+    public List<IItem> retrieveInventory() {
+        return new LinkedList<>(inventory);
     }
 
-    public boolean isAlive() {
+    public boolean isStillAlive() {
         return health > 0;
     }
-} 
+}
