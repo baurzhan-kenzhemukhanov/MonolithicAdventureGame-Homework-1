@@ -26,18 +26,18 @@ public class LevelManager {
             case 1:
                 rivals.add(new Orcs());
                 rivals.add(new Dwarfs());
-                items.add(new GoldCoin());
-                items.add(new HealthElixir());
+                items.add(new TitanuimSteel());
+                items.add(new MiddleEastBones());
                 break;
             case 2:
-                enemies.add(new Elves());
-                items.add(new MagicScroll());
+                rivals.add(new Elves());
+                items.add(new Oakshield());
                 break;
             case 3:
-                enemies.add(new Elves());
-                enemies.add(new Dwarfs());
-                items.add(new HealthElixir());
-                items.add(new GoldCoin());
+                rivals.add(new Elves());
+                rivals.add(new Dwarfs());
+                items.add(new MiddleEastBones());
+                items.add(new TitanuimSteel());
                 break;
         }
     }
@@ -65,7 +65,7 @@ public class LevelManager {
     }
 
     public void removeRival(Rival rival) {
-        rival.remove(rival);
+        rivals.remove(rival);
     }
 
     public void removeItem(IItem item) {
@@ -73,6 +73,7 @@ public class LevelManager {
     }
 
     public boolean isLevelComplete() {
-        return enemies.isEmpty() && items.isEmpty();
+        return rivals.isEmpty() && items.isEmpty();
     }
-} 
+}
+
